@@ -1,0 +1,14 @@
+import numpy as np
+from scipy.stats import norm 
+# PSF
+psf_px = 127
+mean = psf_px // 2
+psf_sigma = 5
+psf = norm.pdf(np.arange(psf_px), loc=mean, scale=psf_sigma)
+
+#print(np.sum(psf)) #np.sum(psf=1) #正規分布の確率密度関数デフォルトは平均0,分散1
+
+#reference
+#秀和システム「Numpy&Scipy数値計算　実装ハンドブック」
+#referred HP
+#https://qiita.com/yusuke_s_yusuke/items/c0e3ba1cf26e96e6696b
