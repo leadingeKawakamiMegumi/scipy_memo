@@ -22,3 +22,5 @@ def sigmoid_fit(x_observed,y_observed,param_ini=(1.5,20),param_bounds= ([0,0],[n
     plt.scatter(x_observed,y_observed,color = "gray")
     plt.plot(x_observed,y_fit)
     return(popt[0],popt[1],y_fit)
+
+#y=0.5---> x=b/a
