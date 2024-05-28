@@ -35,6 +35,8 @@ from scipy.optimize import curve_fit
 def func(x, a, mu, sigma):
     return a*np.exp(-(x-mu)**2/(2*sigma**2))
 
+
+#histgram
 #param_ini = [20,0,1]
 #p0 = param_ini
 def gauss_fit(data, p0, nn=40):
@@ -47,3 +49,13 @@ def gauss_fit(data, p0, nn=40):
     plt.plot(bins,fitting,alpha=0.5)
     plt.show()
     return(popt)
+
+
+#dataそのまま
+def gauss_fit(data, x,p0):
+    popt, pcov = curve_fit(func, x, data, p0=p0) #pcov:共分散
+    print("Intensity:",popt[0], " mean:",popt[1],"standard deviation:",popt[2])
+    fitting = func(nm, popt[0],popt[1],popt[2])
+#     plt.plot(nm,fitting,alpha=0.5)
+#     plt.show()
+    return(popt,fitting)
