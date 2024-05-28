@@ -35,7 +35,8 @@ from scipy.optimize import curve_fit
 def func(x, a, mu, sigma):
     return a*np.exp(-(x-mu)**2/(2*sigma**2))
 
-
+#param_ini = [20,0,1]
+#p0 = param_ini
 def gauss_fit(data, p0, nn=40):
     plt.hist(data,nn,alpha=0.5)
     hist, bins = np.histogram(data,nn)
