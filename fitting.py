@@ -1,9 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
-from scipy.optimize import curve_fit  
 
 
+#sigmoid--------------------------------------
+from scipy.optimize import curve_fit 
 def sigmoid(X,a,b):
     Y1 =1+ np.exp(b - a*X)
     Y = 1 / Y1
@@ -24,3 +25,24 @@ def sigmoid_fit(x_observed,y_observed,param_ini=(1.5,20),param_bounds= ([0,0],[n
     return(popt[0],popt[1],y_fit)
 
 #y=0.5---> x=b/a
+
+
+#gauss--------------------------
+from scipy.stats import mstats,norm
+from scipy.optimize import curve_fit
+
+
+def func(x, a, mu, sigma):
+    return a*np.exp(-(x-mu)**2/(2*sigma**2))
+
+
+def gauss_fit(data, p0, nn=40):
+    plt.hist(data,nn,alpha=0.5)
+    hist, bins = np.histogram(data,nn)
+    bins=bins[:-1]
+    popt, pcov = curve_fit(func, bins, hist, p0=p0) #pcov:共分散
+    print("Intensity:",popt[0], " mean:",popt[1],"standard deviation:",popt[2])
+    fitting = func(bins, popt[0],popt[1],popt[2])
+    plt.plot(bins,fitting,alpha=0.5)
+    plt.show()
+    return(popt)
