@@ -59,3 +59,7 @@ def gauss_fit(data, x,p0):
 #     plt.plot(nm,fitting,alpha=0.5)
 #     plt.show()
     return(popt,fitting)
+
+
+#ガウスで非対称な場合　JohnsonSU分布
+#https://the-silkworms.com/ds_stat_johnsons-su_basic/160/
