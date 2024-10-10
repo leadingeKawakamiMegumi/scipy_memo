@@ -39,7 +39,7 @@ def func(x, a, mu, sigma):
 #histgram
 #param_ini = [20,0,1]  #a,mean,sigma
 #p0 = param_ini
-def gauss_fit(data, p0, nn=40):
+def gauss_fit_hist(data, p0, nn=40):
     plt.hist(data,nn,alpha=0.5)
     hist, bins = np.histogram(data,nn)
     bins=bins[:-1]
