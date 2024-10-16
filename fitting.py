@@ -66,5 +66,7 @@ def gauss_fit(data, x,p0):
     return(popt,fitting)
 
 
+#面積（ガウス分布関数の積分）
+#k = popt[0]*(2*np.pi)**0.5*popt[2]
 #ガウスで非対称な場合　JohnsonSU分布
 #https://the-silkworms.com/ds_stat_johnsons-su_basic/160/
