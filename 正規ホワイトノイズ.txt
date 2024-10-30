@@ -1,0 +1,10 @@
+#正規分布に従う乱数の発生方法(numpy)
+import numpy as np
+np.random.seed(1)
+data = np.random.normal(loc=0, scale=1, size=100) 
+
+
+#正規分布に従う乱数の発生方法(scipy)
+from scipy import stats
+np.random.seed(1)
+data = stats.norm.rvs(loc=0, scale=1, size=100)
